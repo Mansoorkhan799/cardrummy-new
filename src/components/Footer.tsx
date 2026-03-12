@@ -43,6 +43,12 @@ export default function Footer() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/sitemap.xml"
+              className="text-sm text-[var(--muted)] hover:text-[var(--accent)]"
+            >
+              Sitemap
+            </Link>
           </nav>
         </div>
         <div className="mt-8 border-t border-[var(--border)] pt-8 text-center text-sm text-[var(--muted)]">
