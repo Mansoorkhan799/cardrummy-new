@@ -4,7 +4,7 @@ import { SITE_URL } from "@/lib/config";
 const baseUrl = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/about", "/contact", "/blog"];
+  const pages = ["", "/about", "/contact", "/blog", "/privacy", "/disclaimer"];
   const blogPosts = [
     "/blog/download-card-rummy",
     "/blog/how-to-deposit-money",

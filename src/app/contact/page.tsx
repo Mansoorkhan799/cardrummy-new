@@ -32,8 +32,8 @@ export default function ContactPage() {
         <ul className="mt-4 space-y-2 text-[var(--muted)]">
           <li>
             <strong className="text-[var(--foreground)]">Email:</strong>{" "}
-            <a href="mailto:support@cardrummy.pk" className="text-[var(--accent)] hover:underline">
-              support@cardrummy.pk
+            <a href="mailto:support@cardrummy.org.pk" className="text-[var(--accent)] hover:underline">
+              support@cardrummy.org.pk
             </a>
           </li>
           <li>
