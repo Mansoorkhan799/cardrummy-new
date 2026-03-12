@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_URL } from "@/lib/config";
+import { DOWNLOAD_URL, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "About Card Rummy – Pakistan Online Rummy Game",

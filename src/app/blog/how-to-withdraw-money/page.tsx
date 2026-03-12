@@ -1,18 +1,51 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { DOWNLOAD_URL } from "@/lib/config";
+import { DOWNLOAD_URL, SITE_URL } from "@/lib/config";
+import { blogMetadata, articleSchema, howToSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = blogMetadata({
   title: "How to Withdraw Money from Card Rummy Pakistan – Fast Payout Guide",
   description:
     "Learn how to withdraw money from Card Rummy to JazzCash, Easypaisa, or bank account. Step-by-step guide with withdrawal limits, processing times, and tips.",
-  keywords: ["card rummy withdraw", "card rummy withdrawal", "card rummy cash out", "card rummy payout Pakistan", "card rummy JazzCash withdraw"],
-};
+  slug: "how-to-withdraw-money",
+  datePublished: "2026-03-07",
+  keywords: [
+    "how to withdraw from card rummy pakistan",
+    "card rummy withdraw",
+    "card rummy withdrawal",
+    "card rummy cash out",
+    "card rummy payout Pakistan",
+    "card rummy JazzCash withdraw",
+  ],
+});
+
+const withdrawSteps = [
+  { name: "Link your wallet (first time)", text: "Open Card Rummy, go to Withdraw section, select Easypaisa or JazzCash, tap + Wallet, enter name, phone number, and set 6-character withdrawal password. Tap Save." },
+  { name: "Tap Withdraw", text: "Open the app and tap the Withdraw button. Check your withdrawable balance." },
+  { name: "Enter amount and confirm", text: "Enter the amount, select your linked payment method (Easypaisa, JazzCash, or Bank), double-check details, and tap Confirm Withdraw. Money arrives in 5-10 minutes for mobile wallets, up to 24 hours for bank." },
+];
 
 export default function WithdrawMoneyBlog() {
+  const howToJsonLd = howToSchema({
+    name: "How to Withdraw Money from Card Rummy Pakistan",
+    description: "Step-by-step guide to withdraw or cash out winnings from Card Rummy to JazzCash, Easypaisa, or bank account. Fast payout for Pakistani players.",
+    url: `${SITE_URL}/blog/how-to-withdraw-money`,
+    steps: withdrawSteps,
+    image: `${SITE_URL}/card-rummy-app-withdrawl.webp`,
+  });
+  const articleJsonLd = articleSchema({
+    headline: "How to Withdraw Money from Card Rummy Pakistan – Fast Payout Guide",
+    description: "Learn how to withdraw money from Card Rummy to JazzCash, Easypaisa, or bank account. Step-by-step with tips for Pakistan.",
+    url: `${SITE_URL}/blog/how-to-withdraw-money`,
+    datePublished: "2026-03-07",
+    image: `${SITE_URL}/card-rummy-app-withdrawl.webp`,
+  });
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <header>
         <time className="text-sm text-[var(--muted)]">March 7, 2026</time>
         <h1 className="mt-2 font-display text-3xl font-bold sm:text-4xl">

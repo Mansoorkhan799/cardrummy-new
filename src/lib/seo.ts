@@ -43,6 +43,31 @@ export function blogMetadata({
   };
 }
 
+/** HowTo JSON-LD — helps AI assistants (Google AI, ChatGPT, Perplexity) parse and cite your step-by-step guides */
+export function howToSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+  steps: { name: string; text: string }[];
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: params.name,
+    description: params.description,
+    url: params.url,
+    ...(params.image && { image: params.image }),
+    step: params.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+    publisher: { "@type": "Organization", name: "Card Rummy", url: SITE_URL },
+  };
+}
+
 /** Generates Article JSON-LD for blog posts */
 export function articleSchema(params: {
   headline: string;

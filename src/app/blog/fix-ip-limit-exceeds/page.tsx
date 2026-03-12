@@ -1,17 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { DOWNLOAD_URL } from "@/lib/config";
+import { DOWNLOAD_URL, SITE_URL } from "@/lib/config";
+import { blogMetadata, articleSchema, howToSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = blogMetadata({
   title: "How to Fix IP Limit Exceeds Issue in Card Rummy – Quick Solution",
   description:
     "Getting the 'IP Limit Exceeds' error on Card Rummy? Fix it in 2 minutes with a VPN. Step-by-step guide with alternative solutions and prevention tips.",
-  keywords: ["card rummy IP limit exceeds", "fix IP limit card rummy", "card rummy VPN fix", "card rummy login error"],
-};
+  slug: "fix-ip-limit-exceeds",
+  datePublished: "2026-03-08",
+  keywords: ["how to fix IP limit card rummy", "card rummy IP limit exceeds", "fix IP limit card rummy", "card rummy VPN fix", "card rummy login error"],
+});
+
+const fixIpLimitSteps = [
+  { name: "Download a VPN app", text: "Go to Google Play Store and download a reliable VPN (HotspotShield, SuperVPN, Windscribe, or ProtonVPN — all have free versions)." },
+  { name: "Connect the VPN", text: "Launch the VPN app and tap Connect. It assigns you a new IP address from a different location." },
+  { name: "Open Card Rummy", text: "With the VPN connected, open the Card Rummy app. The IP limit error will be gone; log in normally." },
+  { name: "Turn off VPN", text: "Once Card Rummy is running and logged in, disconnect the VPN. The app continues working on your regular internet." },
+];
 
 export default function FixIpLimitBlog() {
+  const howToJsonLd = howToSchema({
+    name: "How to Fix IP Limit Exceeds Issue in Card Rummy",
+    description: "Quick 2-minute fix for the IP Limit Exceeds error on Card Rummy using a VPN. For players in Pakistan.",
+    url: `${SITE_URL}/blog/fix-ip-limit-exceeds`,
+    steps: fixIpLimitSteps,
+  });
+  const articleJsonLd = articleSchema({
+    headline: "How to Fix IP Limit Exceeds Issue in Card Rummy – Quick Solution",
+    description: "Getting the IP Limit Exceeds error on Card Rummy? Fix it in 2 minutes with a VPN. Step-by-step with alternatives.",
+    url: `${SITE_URL}/blog/fix-ip-limit-exceeds`,
+    datePublished: "2026-03-08",
+  });
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <header>
         <time className="text-sm text-[var(--muted)]">March 8, 2026</time>
         <h1 className="mt-2 font-display text-3xl font-bold sm:text-4xl">

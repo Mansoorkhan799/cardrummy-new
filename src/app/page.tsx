@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import TableOfContents from "@/components/TableOfContents";
-import { DOWNLOAD_URL } from "@/lib/config";
+import { DOWNLOAD_URL, SITE_URL } from "@/lib/config";
 
 const appInfo = [
   { label: "App Name", value: "Card Rummy" },
@@ -193,6 +193,10 @@ const userReviews = [
 
 const faqs = [
   {
+    q: "What is Card Rummy?",
+    a: "Card Rummy is Pakistan's most popular online gaming platform and real-money app that offers 35+ casino-style games including Teen Patti, Rummy, Dragon vs Tiger, Poker, Blackjack, Crash, Mines, and Slots. Players can deposit via JazzCash or Easypaisa, play games, win real cash, and withdraw instantly to their wallet or bank.",
+  },
+  {
     q: "What is Card Rummy and how does it work?",
     a: "Card Rummy is Pakistan's most popular online gaming platform offering 35+ casino-style games like Teen Patti, Rummy, Poker, Dragon vs Tiger, Blackjack, Crash, Mines, and Slots. Download the APK, create a free account, deposit as low as Rs. 20, play games, win real cash, and withdraw via JazzCash, Easypaisa, or bank transfer.",
   },
@@ -242,9 +246,23 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-[var(--border)]">
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent)]/10 to-transparent" />
@@ -356,8 +374,11 @@ export default function Home() {
         {/* What is Card Rummy? */}
         <section id="what-is" className="mt-14 scroll-mt-24">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">What is Card Rummy?</h2>
+          <p className="mt-4 rounded-xl border border-[var(--accent)]/30 bg-[var(--card-bg)] p-5 text-lg text-[var(--foreground)]" id="card-rummy-definition">
+            <strong>Card Rummy</strong> is Pakistan&apos;s most popular online gaming platform and real-money app that combines classic card games like Teen Patti and Rummy with modern casino technology. It offers 35+ games including Rummy, Poker, Dragon vs Tiger, Blackjack, Crash, and Slots. Players deposit via JazzCash or Easypaisa, play to win real cash, and withdraw instantly.
+          </p>
           <p className="mt-4 text-[var(--muted)]">
-            <Link href="/" className="text-[var(--accent)] hover:underline">Card Rummy</Link> is Pakistan&apos;s most popular online gaming platform that combines classic card games like Teen Patti and Rummy with modern casino technology. It is a premier real-money gaming app designed specifically for Pakistani users, offering <Link href="/blog/best-games-to-play" className="text-[var(--accent)] hover:underline">35+ thrilling games</Link> including Rummy, Poker, Dragon vs Tiger, Blackjack, Baccarat, Ludo, Crash, Mines, Andar Bahar, 7 Up Down, and many more. Each game is designed with high-quality graphics and smooth gameplay that give a realistic casino feel to players.
+            It is a premier real-money gaming app designed specifically for Pakistani users, offering <Link href="/blog/best-games-to-play" className="text-[var(--accent)] hover:underline">35+ thrilling games</Link> including Rummy, Poker, Dragon vs Tiger, Blackjack, Baccarat, Ludo, Crash, Mines, Andar Bahar, 7 Up Down, and many more. Each game is designed with high-quality graphics and smooth gameplay that give a realistic casino feel to players.
           </p>
           <p className="mt-4 text-[var(--muted)]">
             When people search for &quot;<Link href="/" className="text-[var(--accent)] hover:underline">Card Rummy</Link>&quot;, they are looking for a trusted platform to play card games and earn real money — and Card Rummy delivers exactly that. The platform allows you to <Link href="/blog/how-to-deposit-money" className="text-[var(--accent)] hover:underline">deposit money using local methods</Link> like JazzCash and Easypaisa, play your favorite games, <Link href="/blog/how-to-win-big" className="text-[var(--accent)] hover:underline">win real cash prizes</Link>, and <Link href="/blog/how-to-withdraw-money" className="text-[var(--accent)] hover:underline">withdraw your earnings instantly</Link>. Upon joining and binding your email, players receive a welcome bonus. Additionally, there are daily bonuses, weekly rewards, free wheel spins, deposit bonuses, and a generous referral program where you earn commissions for every friend who joins.

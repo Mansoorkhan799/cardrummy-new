@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   description:
     "Card Rummy APK download free for Android 2026. Pakistan's best real-money gaming app with 35+ games: Teen Patti, Rummy, Dragon vs Tiger, Poker, Crash, Blackjack, Slots. Earn & withdraw via JazzCash, Easypaisa, Bank. 500K+ downloads.",
   keywords: [
+    "what is card rummy",
     "card rummy",
     "card rummy apk",
     "card rummy download",

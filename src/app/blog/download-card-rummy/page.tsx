@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { DOWNLOAD_URL, SITE_URL } from "@/lib/config";
-import { blogMetadata, articleSchema } from "@/lib/seo";
+import { blogMetadata, articleSchema, howToSchema } from "@/lib/seo";
 import Breadcrumbs, { BreadcrumbSchema } from "@/components/Breadcrumbs";
+
+const downloadSteps = [
+  { name: "Visit official website", text: "Open your browser and go to the official Card Rummy website. Tap the Download APK button." },
+  { name: "Enable Unknown Sources", text: "Go to Settings → Security → Unknown Sources and turn it on. On newer Android, allow for your browser." },
+  { name: "Install the APK", text: "Open Downloads folder, tap the Card Rummy APK file, and press Install Now. Wait for installation to complete." },
+  { name: "Launch the app", text: "Tap the Card Rummy icon on your home screen. Start as guest or create an account immediately." },
+];
 
 export const metadata: Metadata = blogMetadata({
   title: "Download Card Rummy APK – Complete Guide for Android 2026",
@@ -21,6 +28,13 @@ const breadcrumbItems = [
 ];
 
 export default function DownloadCardRummyBlog() {
+  const howToJsonLd = howToSchema({
+    name: "How to Download Card Rummy APK in Pakistan",
+    description: "Step-by-step guide to download and install Card Rummy APK on Android. For Pakistani players.",
+    url: `${SITE_URL}/blog/download-card-rummy`,
+    steps: downloadSteps,
+    image: `${SITE_URL}/card-rummy-apk.webp`,
+  });
   const articleJsonLd = articleSchema({
     headline: "Download Card Rummy APK – Complete Guide for Android 2026",
     description:
@@ -32,6 +46,7 @@ export default function DownloadCardRummyBlog() {
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
       <BreadcrumbSchema items={breadcrumbItems} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}

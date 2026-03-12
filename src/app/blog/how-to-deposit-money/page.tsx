@@ -1,18 +1,55 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { DOWNLOAD_URL } from "@/lib/config";
+import { DOWNLOAD_URL, SITE_URL } from "@/lib/config";
+import { blogMetadata, articleSchema, howToSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = blogMetadata({
   title: "How to Deposit Money in Card Rummy Pakistan – JazzCash, Easypaisa & Bank",
   description:
     "Complete guide to deposit money in Card Rummy using JazzCash, Easypaisa, or bank transfer. Step-by-step instructions, deposit bonuses, and tips for Pakistani players.",
-  keywords: ["card rummy deposit", "how to deposit card rummy", "card rummy JazzCash", "card rummy Easypaisa", "add money card rummy Pakistan"],
-};
+  slug: "how-to-deposit-money",
+  datePublished: "2026-03-09",
+  keywords: [
+    "how to add money in card rummy pakistan",
+    "card rummy deposit",
+    "how to deposit card rummy",
+    "card rummy JazzCash",
+    "card rummy Easypaisa",
+    "add money card rummy Pakistan",
+  ],
+});
+
+const depositSteps = [
+  { name: "Open the app and log in", text: "Launch Card Rummy and sign in to your account. If you don't have an account yet, create one first." },
+  { name: "Go to the Shop", text: "Tap the Shop button at the bottom of the screen, or tap the + icon next to your balance." },
+  { name: "Choose your deposit amount", text: "Select from bundles starting from Rs. 20. Higher deposits unlock bigger bonuses." },
+  { name: "Select payment method", text: "Choose between Easypaisa, JazzCash, or bank transfer based on which account you have." },
+  { name: "Enter your phone number", text: "If you selected Easypaisa or JazzCash, enter the phone number linked to your wallet." },
+  { name: "Verify with OTP", text: "Enter the one-time password (OTP) received on your phone to confirm the transaction." },
+  { name: "Chips credited instantly", text: "Once confirmed, game chips equal to your deposit appear in your wallet immediately. Start playing right away." },
+];
 
 export default function DepositMoneyBlog() {
+  const howToJsonLd = howToSchema({
+    name: "How to Add Money in Card Rummy Pakistan",
+    description: "Step-by-step guide to deposit money in Card Rummy using JazzCash, Easypaisa, or bank transfer. For Pakistani players.",
+    url: `${SITE_URL}/blog/how-to-deposit-money`,
+    steps: depositSteps,
+    image: `${SITE_URL}/add-money-in-card-rummy-application.webp`,
+  });
+  const articleJsonLd = articleSchema({
+    headline: "How to Deposit Money in Card Rummy Pakistan – JazzCash, Easypaisa & Bank",
+    description: "Complete guide to add money in Card Rummy using JazzCash, Easypaisa, or bank transfer. Step-by-step with bonuses and tips for Pakistan.",
+    url: `${SITE_URL}/blog/how-to-deposit-money`,
+    datePublished: "2026-03-09",
+    image: `${SITE_URL}/add-money-in-card-rummy-application.webp`,
+  });
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <header>
         <time className="text-sm text-[var(--muted)]">March 9, 2026</time>
         <h1 className="mt-2 font-display text-3xl font-bold sm:text-4xl">
